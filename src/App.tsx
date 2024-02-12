@@ -1,9 +1,10 @@
 import './App.css'
+import TodoWrapper from './TodoWrapper'
 
 function App() {
   return (
     <>
-      <div>To Do List (Upcoming...)</div>
+      <TodoWrapper />
     </>
   )
 }
