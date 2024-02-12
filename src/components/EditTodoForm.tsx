@@ -1,9 +1,13 @@
+import { useState } from "react";
+
 function EditTodoForm() {
+  const [value, setValue] = useState("");
   return (
     <form className="TodoForm">
       <input
         type="text"
-        onChange={(e) => console.log(e.target.value)}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         className="todo-input"
         placeholder="Update task"
       />
