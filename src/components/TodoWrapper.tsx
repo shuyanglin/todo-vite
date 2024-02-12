@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TodoRow from "./TodoRow";
+import TodoRows from "./TodoRows";
 import TodoForm from "./TodoForm";
 import { v4 as uuidv4 } from "uuid";
 uuidv4();
@@ -57,7 +57,7 @@ function TodoWrapper() {
   return (
     <div className="TodoWrapper">
       <TodoForm addTodo={addTodo} />
-      <TodoRow
+      <TodoRows
         todos={todos}
         removeTodo={removeTodo}
         editTodo={editTodo}
