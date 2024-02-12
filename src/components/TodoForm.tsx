@@ -9,6 +9,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
 
   function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
+    if (value == "") return;
     console.log(value);
     addTodo(value);
 
