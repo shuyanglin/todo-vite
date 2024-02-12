@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-function Todo () {
+function Todo() {
   return (
     <div className="Todo">
       <p>Do something</p>
@@ -10,7 +10,7 @@ function Todo () {
         <FontAwesomeIcon icon={faTrash} />
       </div>
     </div>
-  )
+  );
 }
 
 export default Todo;
