@@ -34,12 +34,7 @@ function App() {
   return (
     <div className="TodoWrapper">
       <TodoForm addTodo={addTodo} />
-      <TodoRows
-        todos={todos}
-        removeTodo={removeTodo}
-        editTodo={editTodo}
-        toggleIsEditing={editTodo}
-      />
+      <TodoRows todos={todos} removeTodo={removeTodo} editTodo={editTodo} />
     </div>
   );
 }

@@ -7,14 +7,12 @@ type TodoProps = {
   todos: Array<Todo>;
   removeTodo: (todo: Todo) => void;
   editTodo: (todo: Todo, newTodo: Todo) => void;
-  toggleIsEditing: (todo: Todo, newTodo: Todo) => void;
 };
 
-function TodoRows({ todos, removeTodo, editTodo, toggleIsEditing }: TodoProps) {
+function TodoRows({ todos, removeTodo, editTodo }: TodoProps) {
   return (
     <>
       {todos.map((todo: Todo) => {
-        // todo.isEditing;
         return todo.isEditing ? (
           <EditTodoForm todo={todo} editTodo={editTodo} />
         ) : (
@@ -23,9 +21,8 @@ function TodoRows({ todos, removeTodo, editTodo, toggleIsEditing }: TodoProps) {
             <div>
               <FontAwesomeIcon
                 icon={faPenToSquare}
-                // onClick={() => toggleIsEditing(todo)}
                 onClick={() =>
-                  toggleIsEditing(todo, {
+                  editTodo(todo, {
                     id: todo.id,
                     task: todo.task,
                     isEditing: true,

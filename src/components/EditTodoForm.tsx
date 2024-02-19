@@ -8,7 +8,7 @@ type EditTodoFormProps = {
 
 function EditTodoForm({ todo, editTodo }: EditTodoFormProps) {
   const [value, setValue] = useState(todo.task);
-  function handleSubmit(e: { preventDefault: () => void }) {
+  function handleClick(e: { preventDefault: () => void }) {
     e.preventDefault();
 
     const newTodo: Todo = {
@@ -28,7 +28,7 @@ function EditTodoForm({ todo, editTodo }: EditTodoFormProps) {
         className="todo-input"
         placeholder="Update task"
       />
-      <button onClick={handleSubmit} className="todo-btn">
+      <button onClick={handleClick} className="todo-btn">
         Update Task
       </button>
     </form>
