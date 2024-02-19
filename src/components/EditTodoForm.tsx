@@ -3,17 +3,24 @@ import { Todo } from "./Todo";
 
 type EditTodoFormProps = {
   todo: Todo;
-  editTodo: (todo: Todo, newTask: string) => void;
+  editTodo: (todo: Todo, newTodo: Todo) => void;
 };
 
 function EditTodoForm({ todo, editTodo }: EditTodoFormProps) {
   const [value, setValue] = useState(todo.task);
   function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
-    editTodo(todo, value);
+
+    const newTodo: Todo = {
+      id: todo.id,
+      task: value,
+      isEditing: false,
+    };
+
+    editTodo(todo, newTodo);
   }
   return (
-    <form onSubmit={handleSubmit} className="TodoForm">
+    <form className="TodoForm">
       <input
         type="text"
         value={value}
@@ -21,7 +28,7 @@ function EditTodoForm({ todo, editTodo }: EditTodoFormProps) {
         className="todo-input"
         placeholder="Update task"
       />
-      <button type="submit" className="todo-btn">
+      <button onClick={handleSubmit} className="todo-btn">
         Update Task
       </button>
     </form>

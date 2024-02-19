@@ -6,15 +6,15 @@ import { Todo } from "./Todo";
 type TodoProps = {
   todos: Array<Todo>;
   removeTodo: (todo: Todo) => void;
-  editTodo: (todo: Todo, newTask: string) => void;
-  toggleIsEditing: (todo: Todo) => void;
+  editTodo: (todo: Todo, newTodo: Todo) => void;
+  toggleIsEditing: (todo: Todo, newTodo: Todo) => void;
 };
 
 function TodoRows({ todos, removeTodo, editTodo, toggleIsEditing }: TodoProps) {
   return (
     <>
       {todos.map((todo: Todo) => {
-        todo.isEditing;
+        // todo.isEditing;
         return todo.isEditing ? (
           <EditTodoForm todo={todo} editTodo={editTodo} />
         ) : (
@@ -23,7 +23,14 @@ function TodoRows({ todos, removeTodo, editTodo, toggleIsEditing }: TodoProps) {
             <div>
               <FontAwesomeIcon
                 icon={faPenToSquare}
-                onClick={() => toggleIsEditing(todo)}
+                // onClick={() => toggleIsEditing(todo)}
+                onClick={() =>
+                  toggleIsEditing(todo, {
+                    id: todo.id,
+                    task: todo.task,
+                    isEditing: true,
+                  })
+                }
               />
               <FontAwesomeIcon
                 icon={faTrash}

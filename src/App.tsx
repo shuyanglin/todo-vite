@@ -8,7 +8,6 @@ uuidv4();
 
 function App() {
   const [todos, setTodos] = useState<Array<Todo>>([]);
-  console.log(todos);
 
   function addTodo(task: string) {
     const id: string = uuidv4();
@@ -21,35 +20,17 @@ function App() {
   }
 
   function removeTodo(todo: Todo) {
-    const newTodos = todos.slice();
-    const index = todos.indexOf(todo);
-    newTodos.splice(index, 1);
+    const newTodos = todos.filter((t) => t != todo);
     setTodos(newTodos);
   }
 
-  function toggleIsEditing(todo: Todo) {
+  function editTodo(todo: Todo, newTodo: Todo) {
     const newTodos = todos.slice();
     const index = todos.indexOf(todo);
-    const newTodo: Todo = {
-      id: todo.id,
-      task: todo.task,
-      isEditing: true,
-    };
     newTodos.splice(index, 1, newTodo);
     setTodos(newTodos);
   }
 
-  function editTodo(todo: Todo, newTask: string) {
-    const newTodos = todos.slice();
-    const index = todos.indexOf(todo);
-    const newTodo: Todo = {
-      id: todo.id,
-      task: newTask,
-      isEditing: false,
-    };
-    newTodos.splice(index, 1, newTodo);
-    setTodos(newTodos);
-  }
   return (
     <div className="TodoWrapper">
       <TodoForm addTodo={addTodo} />
@@ -57,7 +38,7 @@ function App() {
         todos={todos}
         removeTodo={removeTodo}
         editTodo={editTodo}
-        toggleIsEditing={toggleIsEditing}
+        toggleIsEditing={editTodo}
       />
     </div>
   );

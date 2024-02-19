@@ -10,15 +10,12 @@ function TodoForm({ addTodo }: TodoFormProps) {
   function handleSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
     if (value == "") return;
-    console.log(value);
     addTodo(value);
-
-    // clear value
     setValue("");
   }
 
   return (
-    <form onSubmit={handleSubmit} className="TodoForm">
+    <form className="TodoForm">
       <input
         type="text"
         className="todo-input"
@@ -28,7 +25,7 @@ function TodoForm({ addTodo }: TodoFormProps) {
           setValue(e.target.value);
         }}
       />
-      <button type="submit" className="todo-btn">
+      <button onClick={handleSubmit} className="todo-btn">
         Add Task
       </button>
     </form>
