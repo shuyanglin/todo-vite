@@ -1,17 +1,13 @@
 import EditTodoForm from "./EditTodoForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Todo } from "./Todo";
+
 type TodoProps = {
   todos: Array<Todo>;
   removeTodo: (todo: Todo) => void;
   editTodo: (todo: Todo, newTask: string) => void;
   toggleIsEditing: (todo: Todo) => void;
-};
-
-type Todo = {
-  id: string;
-  task: string;
-  isEditing: boolean;
 };
 
 function TodoRows({ todos, removeTodo, editTodo, toggleIsEditing }: TodoProps) {

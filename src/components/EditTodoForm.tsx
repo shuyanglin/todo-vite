@@ -1,14 +1,9 @@
 import { useState } from "react";
+import { Todo } from "./Todo";
 
 type EditTodoFormProps = {
   todo: Todo;
   editTodo: (todo: Todo, newTask: string) => void;
-};
-
-type Todo = {
-  id: string;
-  task: string;
-  isEditing: boolean;
 };
 
 function EditTodoForm({ todo, editTodo }: EditTodoFormProps) {
